@@ -51,7 +51,7 @@ php artisan migrate --seed
 ```
 
 5 - Some notes:
-* To access the Dashboard use **challenge.loca/dashboard** or your VHost that you have configured with the URL **/dashboard**.
+* To access the Dashboard use **challenge.loca/dashboard/home** or your VHost that you have configured with the URL **/dashboard/home**.
 * Username: master
 * Password: teste
 
