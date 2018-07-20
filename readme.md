@@ -40,7 +40,7 @@ npm install
 * Create the database. 
 * Create your **.env** file in the project root using the **.env.example** file. 
 * **Remember to configure the variables related to your database in .env**
-* Execute em seu Terminal:
+* Run on your terminal:
 ```
 php artisan key:generate
 ```
