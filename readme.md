@@ -66,5 +66,5 @@ php artisan migrate --seed
 * [jQuery](https://jquery.com/)
 * [Bootstrap](https://getbootstrap.com/)
 
-## You need some help? Contact me!
+## Do you need some help? Contact me!
 [João P. Schias](https://www.linkedin.com/in/joaopschias/)
