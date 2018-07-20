@@ -63,7 +63,6 @@ php artisan migrate --seed
 
 ### Client-side
 
-* [Sass](http://sass-lang.com/)
 * [jQuery](https://jquery.com/)
 * [Bootstrap](https://getbootstrap.com/)
 
