@@ -1,6 +1,5 @@
 <table class="m-table table table-bordered table-hover table-responsive ">
     <thead>
-    <th>Category</th>
     <th>Title</th>
     <th>Phone</th>
     <th>Address</th>
@@ -13,7 +12,6 @@
     @if(isset($businesses) and $businesses and count($businesses) > 0)
         @foreach($businesses as $business)
             <tr>
-                <td>{!! $business->category->title !!}</td>
                 <td>{!! $business->title !!}</td>
                 <td>{!! $business->phone !!}</td>
                 <td>{!! $business->address !!}</td>

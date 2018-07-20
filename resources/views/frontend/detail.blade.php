@@ -8,7 +8,13 @@
             <div class="detail-header">
                 <div class="content">
                     <h2 class="title">{!! $business->title !!}</h2>
-                    <span class="tag">in <strong>{!! $business->category->title !!}</strong></span>
+                    <span class="tag">in
+                        @if(isset($business->categories) and $business->categories)
+                            @foreach($business->categories as $category)
+                                <strong>{!! $category->title !!}</strong>,
+                            @endforeach
+                        @endif
+                    </span>
                 </div>
                 <div class="action">
                     <a href="{{url()->previous()}}" class="button">Back</a>

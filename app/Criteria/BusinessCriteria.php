@@ -43,7 +43,7 @@ class BusinessCriteria implements CriteriaInterface
                                 ->orWhere('address', 'like', '%'.$input['search'].'%')
                                 ->orWhere('city', 'like', '%'.$input['search'].'%')
                                 ->orWhere('zipcode', 'like', '%'.$input['search'].'%')
-                                ->orWhereHas('category', function($query) use ($input) {
+                                ->orWhereHas('categories', function($query) use ($input) {
                                     $query->where('title', 'like', '%'.$input['search'].'%');
                                 });
             }

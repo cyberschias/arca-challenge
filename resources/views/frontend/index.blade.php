@@ -23,9 +23,13 @@
                             <span class="count">{!! $business->id !!}</span>
                             <div class="content">
                                 <div class="title">{!! $business->title !!}</div>
-                                <div class="tag">
-                                    in <strong>{!! $business->category->title !!}</strong>
-                                </div>
+                                <span class="tag">in
+                                    @if(isset($business->categories) and $business->categories)
+                                        @foreach($business->categories as $category)
+                                            <strong>{!! $category->title !!}</strong>,
+                                        @endforeach
+                                    @endif
+                                </span>
                             </div>
                         </a>
                     @endforeach

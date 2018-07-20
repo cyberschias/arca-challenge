@@ -22,7 +22,6 @@ class CreateBusinesses extends Migration
 
         Schema::create('businesses', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('category_id');
             $table->string('title', 150)->nullable();
             $table->string('url', 255)->nullable();
             $table->text('description')->nullable();
@@ -33,10 +32,19 @@ class CreateBusinesses extends Migration
             $table->string('zipcode', 20)->nullable();
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('category_id')->references('id')->on('categories');
-
         });
+
+        Schema::create('businesses_categories', function (Blueprint $table) {
+            $table->unsignedInteger('business_id');
+            $table->unsignedInteger('category_id');
+
+            $table->engine = 'InnoDB';
+
+            $table->index(['business_id', 'category_id']);
+            $table->foreign('business_id')->references('id')->on('businesses');
+            $table->foreign('category_id')->references('id')->on('categories');
+        });
+
     }
 
     /**
@@ -46,6 +54,7 @@ class CreateBusinesses extends Migration
      */
     public function down()
     {
+        Schema::drop('businesses_categories');
         Schema::drop('businesses');
         Schema::drop('categories');
     }

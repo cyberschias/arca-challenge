@@ -1,7 +1,16 @@
 <div class="form-group m-form__group row">
-    <div class="form-group col-sm-6">
-        {!! Form::label('category_id', 'Category:') !!}
-        {!! Form::select('category_id', $listCategories, null, ['class' => 'form-control']) !!}
+    <div class="form-group col-sm-12">
+        {!! Form::label('categories', 'Categories:') !!}
+        <div class="m-checkbox-inline">
+        @if(isset($listCategories) and $listCategories and count($listCategories) > 0)
+            @foreach ($listCategories as $id => $category)
+                <label class="m-checkbox">
+                    {!! Form::checkbox('categories[]', $id, isset($businesss) ? in_array($id, $businesss->categories()->pluck('id')->toArray()) : null, ['class' => '']) !!} {!! $category !!}
+                    <span></span>
+                </label>
+            @endforeach
+        @endif
+        </div>
     </div>
 </div>
 <div class="form-group m-form__group row">

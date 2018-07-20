@@ -34,7 +34,6 @@ class Business extends Model
 
 
     public $fillable = [
-        'category_id',
         'title',
         'description',
         'phone',
@@ -51,7 +50,6 @@ class Business extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'category_id' => 'integer',
         'title' => 'string',
         'description' => 'string',
         'phone' => 'string',
@@ -67,21 +65,22 @@ class Business extends Model
      * @var array
      */
     public static $rules = [
-        'category_id' => 'required',
         'title' => 'required|max:150',
-        'phone' => 'max:20',
+        'description' => 'required',
+        'phone' => 'required|max:20',
         'address' => 'required|max:200',
         'city' => 'required|max:200',
         'state' => 'required|max:2',
-        'zipcode' => 'required||max:20'
+        'zipcode' => 'required|max:20',
+        'categories' => 'required|array|min:1'
     ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      **/
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo(\App\Models\Category::class);
+        return $this->belongsToMany(\App\Models\Category::class, 'businesses_categories');
     }
 
     public function address($pattern = '%a - %c, %e - %z'){

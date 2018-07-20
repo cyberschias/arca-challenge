@@ -45,7 +45,7 @@ class BusinessController extends AppBaseController
      */
     public function create()
     {
-        $listCategories = $this->categoryRepository->allList(['' => 'Choose one...']);
+        $listCategories = $this->categoryRepository->allList();
 
         return view('dashboard.businesses.create')->with('listCategories', $listCategories);
     }
@@ -105,7 +105,7 @@ class BusinessController extends AppBaseController
             return redirect(route('businesses.index'));
         }
 
-        $listCategories = $this->categoryRepository->allList(['' => 'Choose one...']);
+        $listCategories = $this->categoryRepository->allList();
 
         return view('dashboard.businesses.edit')->with('listCategories', $listCategories)->with('business', $business);
     }

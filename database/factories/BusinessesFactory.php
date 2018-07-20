@@ -6,7 +6,6 @@ $faker->addProvider(new Faker\Provider\en_US\Address($faker));
 
 $factory->define(App\Models\Business::class, function ($faker) {
     return [
-        'category_id' => \App\Models\Category::inRandomOrder()->pluck('id')->first(),
         'title' => $title = $faker->company,
         'url' => str_slug($title, "-"),
         'description' => $faker->realText(200, 2),
