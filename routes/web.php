@@ -20,7 +20,7 @@ Route::group(['prefix' => 'dashboard'], function () {
     Route::get('logout', 'AuthController@logout');
 
     Route::group(['middleware' => 'sentinel.auth'], function () {
-        Route::get('/', 'HomeController@index');
+        Route::get('home', ['as' => 'home', 'uses' => 'HomeController@index']);
         Route::resource('users', 'UserController');
         Route::resource('categories', 'CategoryController');
         Route::resource('businesses', 'BusinessController');

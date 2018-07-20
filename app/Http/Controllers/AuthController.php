@@ -45,7 +45,7 @@ class AuthController extends Controller
 
             \Sentinel::loginAndRemember($user);
 
-            return \Redirect::to('dashboard');
+            return \Redirect::to('dashboard/home');
         } else {
             Flash::error('Incorrect data');
         }
