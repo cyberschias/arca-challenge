@@ -11,20 +11,20 @@
 |
 */
 
-Route::get('/', 'FrontEndController@index')->name('frontend.index');
-Route::get('/{url}', 'FrontEndController@show');
-
 Route::group(['prefix' => 'dashboard'], function () {
     Route::get('login', 'AuthController@login');
     Route::post('login', 'AuthController@checkLogin');
     Route::get('logout', 'AuthController@logout');
 
     Route::group(['middleware' => 'sentinel.auth'], function () {
-        Route::get('home', ['as' => 'home', 'uses' => 'HomeController@index']);
+        Route::get('/', ['as' => 'index', 'uses' => 'HomeController@index']);
         Route::resource('users', 'UserController');
         Route::resource('categories', 'CategoryController');
         Route::resource('businesses', 'BusinessController');
     });
 });
+
+Route::get('/', 'FrontEndController@index')->name('frontend.index');
+Route::get('/{url}', 'FrontEndController@show');
 
 

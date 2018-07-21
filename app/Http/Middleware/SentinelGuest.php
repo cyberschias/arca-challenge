@@ -10,7 +10,7 @@ class SentinelGuest
     public function handle($request, Closure $next)
     {
         if (Sentinel::check()) {
-            return \Redirect::to('dashboard/home');
+            return \Redirect::to('dashboard/');
         }
 
         return $next($request);
